@@ -8,9 +8,14 @@ output "availability_zone" {
   value       = aws_instance.cc_vm[*].availability_zone
 }
 
-output "service_eni_1" {
+output "mgmt_eni_1" {
   description = "Instance Device Index 1 Network ID"
   value       = aws_network_interface.cc_vm_nic_index_1[*].id
+}
+
+output "service_eni_1" {
+  description = "Instance Device Index 1 Network ID"
+  value       = aws_network_interface.cc_vm_nic_index_0[*].id
 }
 
 output "service_eni_2" {
@@ -33,9 +38,14 @@ output "id" {
   value       = aws_instance.cc_vm[*].id
 }
 
-output "cc_service_private_ip" {
+output "cc_mgmt_private_ip" {
   description = "Instance Device Index 1 Private IP"
   value       = aws_network_interface.cc_vm_nic_index_1[*].private_ip
+}
+
+output "cc_service_private_ip" {
+  description = "Instance Device Index 0 Private IP"
+  value       = aws_network_interface.cc_vm_nic_index_0[*].private_ip
 }
 
 output "cc_med_lrg_service_1_private_ip" {
